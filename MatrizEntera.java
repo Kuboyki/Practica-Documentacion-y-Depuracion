@@ -6,7 +6,8 @@ import java.util.Scanner;
 /**
  * MatrizEntera es una clase que encapsula una matriz de
  * numero enteros, con funcionalidades para inicializar
- * aleatoriamente la matriz,imprimir por pantalla o en fichero y transponerlo.
+ * aleatoriamente la matriz,imprimir por pantalla o
+ * en fichero y transponerlo.
  *
  * @author JINGHONG DONG
  * @version 1.0
@@ -26,8 +27,9 @@ public class MatrizEntera {
     private int [][] matriz;
 
     /**
-     * Una matriz nueva de numeros entero segun
-     * el numeros de fila y columna que le se le da
+     * Instancia una nueva matriz entera de tamaño
+     * filas por columnas.
+     *
      * @param filas numeros de fila que tendra la matriz
      * @param columnas numeros de columnas que tendra la matriz
      */
@@ -38,19 +40,20 @@ public class MatrizEntera {
     }
 
     /**
-     * Obtener dato de la Matriz indicando la posicion mediante
-     * fila y columna
-     * @param fila posicion en numero de filas
-     * @param columna posicion en numero de columnas
-     * @return nos devuelve el volar que indicamos
+     * Devuelve el valor de una celda de la matriz.
+     *
+     * @param fila  el numero de fila de la matriz
+     * @param columna el numero de columna de la celda de la matriz
+     * @return the valor
      */
     public int getValor (int fila,int columna){
         return matriz [fila][columna];
     }
 
     /**
-     * El método da valor cualquira a cada celda
-     * @param rand generador de numero ramdom
+     * Inicializa la matriz con valorares aleatorios.
+     *
+     * @param rand el generador de numeros aleatorios
      */
     public void iniciarAleatorio(Random rand){
         for(int f=0;f<FILAS;f++){
@@ -61,21 +64,21 @@ public class MatrizEntera {
     }
 
     /**
-     * Imprime la matriz completa (en caso de estar vacia
-     * no imprime nada)
+     * Imprime la matriz por salida de teclado.
      */
     public void imprimir(){
         for(int f=0; f<FILAS;f++){
             for (int c=0;c<COLUMNAS;c++){
-                System.out.println(matriz[f][c]+" ");
+                System.out.print(matriz[f][c]+" ");
             }
             System.out.println();
         }
     }
     /**
      * Imprime la matriz en un fichero de texto.
-     * @param fichero
-     * @throws IOException
+     *
+     * @param fichero nombre del fichero de texto
+     * @throws IOException error de escritura en el fichero
      */
     public void imprimirEnFichero(String fichero) throws IOException{
         PrintWriter pw = new PrintWriter(fichero);
@@ -100,6 +103,9 @@ public class MatrizEntera {
                 int aux = matriz[f][c];
                 matriz[f][c]=matriz[c][f];
                 matriz[c][f]=aux;
+                System.out.println("Estado tras camibiar "+f+","+c);
+                imprimir();
+                System.out.println();
             }
         }
     }
