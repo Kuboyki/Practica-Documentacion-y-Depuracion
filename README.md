@@ -1,2 +1,2 @@
-# Practica-Documentaci-n-y-depuraci-n
+# Practica-Documentacion-y-depuracion
 Practica1
